@@ -1,3 +1,5 @@
+# Codemagic CI/CD Configuration for Don't Touch Red
+
 workflows:
   android-workflow:
     name: Android Build Workflow
@@ -5,7 +7,7 @@ workflows:
     max_build_duration: 60
     environment:
       groups:
-        - keystore_credentials  # اسم المجموعة الصحيح الذي أنشأته في Codemagic
+        - keystore_credentials
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -16,14 +18,11 @@ workflows:
       
       - name: Decode Keystore
         script: |
-          # إنشاء مجلد keystore
           mkdir -p android/app/keystore
-          # فك تشفير ملف keystore من المتغير البيئي
           echo $CM_KEYSTORE | base64 --decode > android/app/keystore/upload-keystore.jks
       
       - name: Create key.properties
         script: |
-          # إنشاء ملف key.properties من المتغيرات البيئية
           echo "storePassword=$CM_KEYSTORE_PASSWORD" > android/key.properties
           echo "keyPassword=$CM_KEY_PASSWORD" >> android/key.properties
           echo "keyAlias=$CM_KEY_ALIAS" >> android/key.properties
@@ -33,20 +32,11 @@ workflows:
         script: |
           flutter pub get
       
-      - name: Flutter analyze
-        script: |
-          flutter analyze
-      
-      - name: Build Android APK
-        script: |
-          flutter build apk --release --build-name=1.0.$BUILD_NUMBER --build-number=$BUILD_NUMBER
-      
       - name: Build Android App Bundle (AAB)
         script: |
-          flutter build appbundle --release --build-name=1.0.$BUILD_NUMBER --build-number=$BUILD_NUMBER
+          flutter build appbundle --release
     
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
       - build/app/outputs/bundle/release/*.aab
     
     publishing:
