@@ -7,7 +7,7 @@ workflows:
     max_build_duration: 60
     environment:
       groups:
-        - dynamic_env_vars  # هذه المجموعة يجب أن تحتوي على متغيرات keystore
+        - keystore_credentials  # <-- هذا هو اسم المجموعة التي أنشأتها في Codemagic
       flutter: stable
       xcode: latest
       cocoapods: default
