@@ -1,5 +1,3 @@
-# Codemagic CI/CD Configuration for Don't Touch Red
-
 workflows:
   android-workflow:
     name: Android Build Workflow
@@ -7,7 +5,7 @@ workflows:
     max_build_duration: 60
     environment:
       groups:
-        - keystore_credentials  # <-- هذا هو اسم المجموعة التي أنشأتها في Codemagic
+        - keystore_credentials  # اسم المجموعة الصحيح الذي أنشأته في Codemagic
       flutter: stable
       xcode: latest
       cocoapods: default
