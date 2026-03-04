@@ -1,48 +1,48 @@
 # Gems Hunter 💎🟥
 
-**Gems Hunter** هي لعبة أندرويد احترافية تم تطويرها باستخدام **Flutter**. اللعبة مصممة لاختبار سرعة رد الفعل والتركيز من خلال مطاردة الجواهر الخضراء وتجنب العوائق الحمراء المتزايدة الصعوبة.
+**Gems Hunter** is a professional Android game developed using **Flutter**. The game is designed to test reaction speed and concentration by chasing green gems while avoiding increasingly difficult red obstacles.
 
-## ✨ المميزات الاحترافية
+## ✨ Professional Features
 
-*   **🎮 تجربة لعب متطورة**: نظام مطاردة أهداف (Gems) وتجنب عوائق (Obstacles).
-*   **📈 ذكاء اصطناعي للصعوبة**: تزداد سرعة اللعبة تلقائياً، ويظهر عائق أحمر ثانٍ عند تخطي سكور 20.
-*   **📊 لوحة إحصائيات كاملة**: تتبع النقاط، أعلى سكور، والمستوى (Beginner to Legend).
-*   **💾 حفظ دائم**: يتم حفظ الرقم القياسي تلقائياً باستخدام `shared_preferences`.
-*   **🎵 هوية صوتية وبصرية**: أصوات تفاعلية مدمجة، وتأثيرات احتفالية (Confetti).
-*   **💰 جاهزة للربح**: مدمجة بالكامل مع **Google AdMob** (Banner & Interstitial).
-*   **🖼️ أيقونة مخصصة**: شعار الجوهرة الخضراء الاحترافي.
+*   **🎮 Advanced Gameplay**: A system for chasing targets (Gems) and avoiding obstacles.
+*   **📈 Dynamic Difficulty**: Game speed increases automatically, and a second red obstacle appears after crossing a score of 20.
+*   **📊 Full Stats Dashboard**: Tracks points, high score, and rank (from Beginner to Legend).
+*   **💾 Persistent Storage**: High scores are automatically saved using `shared_preferences`.
+*   **🎵 Audio-Visual Identity**: Integrated interactive sounds and celebratory effects (Confetti).
+*   **💰 Monetization Ready**: Fully integrated with **Google AdMob** (Banner & Interstitial ads).
+*   **🖼️ Custom Branding**: Professional green diamond logo and launcher icons.
 
-## 🛠️ التكنولوجيا المستخدمة
+## 🛠️ Technology Stack
 
 *   **Flutter SDK** (Material 3)
 *   **Google Mobile Ads SDK**
 *   **AudioPlayers** & **Confetti**
 *   **Shared Preferences** (Local Storage)
 
-## 🚀 كيفية التشغيل للمطورين
+## 🚀 Getting Started for Developers
 
-1.  **تحميل المشروع**:
+1.  **Clone the Project**:
     ```bash
-    git clone https://github.com/ottomohamed/dont_touch_red.git
+    git clone https://github.com/ottomohamed/GemsHunter.git
     ```
 
-2.  **تحميل المكتبات**:
+2.  **Install Dependencies**:
     ```bash
     flutter pub get
     ```
 
-3.  **توليد الأيقونات**:
+3.  **Generate Launcher Icons**:
     ```bash
     dart run flutter_launcher_icons
     ```
 
-4.  **بناء التطبيق**:
+4.  **Build the Application**:
     ```bash
     flutter build apk --release
     ```
 
-## 📝 ملاحظة النشر
-التطبيق مجهز بمعرفات حقيقية وجاهز للرفع لمتجر Google Play. تأكد من توقيع التطبيق بمفتاحك الخاص (Keystore) قبل الرفع النهائي.
+## 📝 Release Note
+The app is configured with real IDs and is ready for upload to the Google Play Store. Ensure you sign the app with your private Keystore before the final release.
 
 ---
-تم تطوير هذا المشروع بلمسات احترافية ليكون نموذجاً ناجحاً لألعاب Flutter البسيطة والمربحة. 🚀💎
+Developed with professional touches to be a successful model for simple and profitable Flutter games. 🚀💎

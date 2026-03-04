@@ -1,4 +1,4 @@
-name: dont_touch_red
+name: gemshunter
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -13,14 +13,14 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_mobile_ads: ^7.0.0
   audioplayers: ^6.1.1
-  confetti: ^0.7.0
+  confetti: ^0.8.0
   shared_preferences: ^2.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.4
 
 flutter_launcher_icons:
   android: "launcher_icon"
