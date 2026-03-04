@@ -16,15 +16,17 @@ workflows:
           dart run flutter_launcher_icons
       - name: Decode Keystore
         script: |
-          mkdir -p android/app/keystore
-          # استخدام printf لضمان فك تشفير البيانات بشكل سليم دون مشاكل في السلسلة النصية
-          printf "%s" "$CM_KEYSTORE" | base64 --decode > android/app/keystore/upload-keystore.jks
+          # فك تشفير المفتاح ووضعه مباشرة في مجلد app
+          echo "$CM_KEYSTORE" | base64 --decode > android/app/upload-keystore.jks
       - name: Create key.properties
         script: |
-          echo "storePassword=$CM_KEYSTORE_PASSWORD" > android/key.properties
-          echo "keyPassword=$CM_KEY_PASSWORD" >> android/key.properties
-          echo "keyAlias=$CM_KEY_ALIAS" >> android/key.properties
-          echo "storeFile=../app/keystore/upload-keystore.jks" >> android/key.properties
+          # إنشاء ملف الخصائص بمسار مباشر وبسيط
+          cat <<EOF > android/key.properties
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyPassword=$CM_KEY_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          storeFile=upload-keystore.jks
+          EOF
       - name: Build AAB
         script: |
           flutter build appbundle --release
