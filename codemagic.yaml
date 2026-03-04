@@ -1,5 +1,3 @@
-# Codemagic CI/CD Configuration for Don't Touch Red
-
 workflows:
   android-workflow:
     name: Android Build Workflow
@@ -9,36 +7,28 @@ workflows:
       groups:
         - keystore_credentials
       flutter: stable
-      xcode: latest
-      cocoapods: default
     scripts:
-      - name: Set up local.properties
+      - name: Install dependencies
         script: |
-          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-      
+          flutter pub get
+      - name: Generate Launcher Icons
+        script: |
+          dart run flutter_launcher_icons
       - name: Decode Keystore
         script: |
           mkdir -p android/app/keystore
           echo $CM_KEYSTORE | base64 --decode > android/app/keystore/upload-keystore.jks
-      
       - name: Create key.properties
         script: |
           echo "storePassword=$CM_KEYSTORE_PASSWORD" > android/key.properties
           echo "keyPassword=$CM_KEY_PASSWORD" >> android/key.properties
           echo "keyAlias=$CM_KEY_ALIAS" >> android/key.properties
           echo "storeFile=../app/keystore/upload-keystore.jks" >> android/key.properties
-      
-      - name: Get Flutter dependencies
-        script: |
-          flutter pub get
-      
-      - name: Build Android App Bundle (AAB)
+      - name: Build AAB
         script: |
           flutter build appbundle --release
-    
     artifacts:
-      - build/app/outputs/bundle/release/*.aab
-    
+      - build/app/outputs/bundle/release/app-release.aab
     publishing:
       email:
         recipients:

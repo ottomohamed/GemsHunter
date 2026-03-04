@@ -231,11 +231,7 @@ class _GamePageState extends State<GamePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       backgroundColor: const Color(0xFF0F0F13),
-=======
-      backgroundColor: const Color(0xFF0F0F13), // Deep Dark Arcade Background
->>>>>>> 0b27c079cf8b9a58e434594887fafe3da769a182
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -249,11 +245,9 @@ class _GamePageState extends State<GamePage> with SingleTickerProviderStateMixin
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24, letterSpacing: 2),
         ),
       ),
-<<<<<<< HEAD
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Determine the maximum width to keep the game board readable on tablets
             double maxWidth = constraints.maxWidth > 600 ? 500 : constraints.maxWidth;
             
             return Center(
@@ -300,11 +294,11 @@ class _GamePageState extends State<GamePage> with SingleTickerProviderStateMixin
                         ),
                       ),
 
-                      // Game Grid - Centered and AspectRatio maintained
+                      // Game Grid
                       Expanded(
                         child: Center(
                           child: AspectRatio(
-                            aspectRatio: 1.0, // Ensures the grid is always square
+                            aspectRatio: 1.0, 
                             child: Padding(
                               padding: const EdgeInsets.all(20),
                               child: GridView.builder(
@@ -330,7 +324,6 @@ class _GamePageState extends State<GamePage> with SingleTickerProviderStateMixin
                         ),
                       ),
                       
-                      // Ad Banner at the bottom
                       if (banner != null && isBannerLoaded)
                         Container(
                           alignment: Alignment.center,
@@ -338,88 +331,13 @@ class _GamePageState extends State<GamePage> with SingleTickerProviderStateMixin
                           height: banner!.size.height.toDouble(),
                           child: AdWidget(ad: banner!),
                         ),
-                      const SizedBox(height: 10), // Small spacing below ad
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
               ),
             );
           },
-=======
-      body: AnimatedBuilder(
-        animation: _shakeController,
-        builder: (context, child) {
-          double dx = sin(_shakeController.value * 20 * pi) * 10 * (1 - _shakeController.value);
-          return Transform.translate(offset: Offset(dx, 0), child: child);
-        },
-        child: Column(
-          children: [
-            // Arcade Stats Dashboard
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildArcadeStat("SCORE", score.toString(), const Color(0xFF00FF88)),
-                  _buildComboBadge(),
-                  _buildArcadeStat("BEST", highscore.toString(), Colors.orangeAccent),
-                ],
-              ),
-            ),
-
-            // Difficulty Neon Bar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                children: [
-                  LinearProgressIndicator(
-                    value: getDifficultyPercent(),
-                    backgroundColor: Colors.white10,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Color.lerp(const Color(0xFF00FF88), const Color(0xFFFF2D55), getDifficultyPercent())!,
-                    ),
-                    minHeight: 10,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  const SizedBox(height: 5),
-                  const Text("SYSTEM LOAD SPEED", style: TextStyle(color: Colors.white24, fontSize: 10, letterSpacing: 1.5)),
-                ],
-              ),
-            ),
-
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 8,
-                    crossAxisSpacing: 8,
-                  ),
-                  itemCount: gridSize,
-                  itemBuilder: (context, index) {
-                    TileType type = TileType.empty;
-                    if (index == redIndex || index == redIndex2) {
-                      type = TileType.red;
-                    } else if (index == gemIndex) {
-                      type = TileType.gem;
-                    }
-                    return Tile(type: type, onTap: () => tapTile(index));
-                  },
-                ),
-              ),
-            ),
-            
-            if (banner != null && isBannerLoaded)
-              Container(
-                color: Colors.transparent,
-                width: banner!.size.width.toDouble(),
-                height: banner!.size.height.toDouble(),
-                child: AdWidget(ad: banner!),
-              )
-          ],
->>>>>>> 0b27c079cf8b9a58e434594887fafe3da769a182
         ),
       ),
     );

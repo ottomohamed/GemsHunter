@@ -28,7 +28,6 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -46,10 +45,10 @@ class _StartPageState extends State<StartPage> {
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.greenAccent.withOpacity(0.1),
+                          color: Colors.greenAccent.withValues(alpha: 0.1),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.greenAccent.withOpacity(0.2),
+                              color: Colors.greenAccent.withValues(alpha: 0.2),
                               blurRadius: 40,
                               spreadRadius: 5,
                             )
@@ -110,13 +109,13 @@ class _StartPageState extends State<StartPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             elevation: 8,
-                            shadowColor: Colors.greenAccent.withOpacity(0.5),
+                            shadowColor: Colors.greenAccent.withValues(alpha: 0.5),
                           ),
                           child: const Text(
                             "START MISSION",
                             style: TextStyle(
                               fontSize: 22, 
-                              fontWeight: FontWeight.w900, // Fixed: Changed from black to w900
+                              fontWeight: FontWeight.w900, 
                               letterSpacing: 1.5,
                             ),
                           ),
@@ -133,58 +132,6 @@ class _StartPageState extends State<StartPage> {
               ),
             );
           },
-=======
-      backgroundColor: Colors.grey[50],
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.diamond,
-              size: 100,
-              color: Colors.greenAccent,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              "GEMS HUNTER",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2.0,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "Best Score: $highscore",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[600],
-              ),
-            ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const GamePage()),
-                ).then((_) => _loadHighScore()); // Refresh highscore when coming back
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.greenAccent,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                elevation: 5,
-              ),
-              child: const Text(
-                "START GAME",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
->>>>>>> 0b27c079cf8b9a58e434594887fafe3da769a182
         ),
       ),
     );
